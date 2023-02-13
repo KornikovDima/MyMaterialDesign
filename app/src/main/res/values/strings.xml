@@ -11,4 +11,14 @@
     <string name="yesterday">Yesterday</string>
     <string name="today">Today</string>
     <string name="search">Search</string>
+    <string name="favorite">Favorite</string>
+    <string name="setting">Setting</string>
+    <string name="favourite">Likes</string>
+    <string name="settings">Setting</string>
+    <string name="lemon_style">Lemon Style</string>
+    <string name="orange_style">Orange Style</string>
+    <string name="select_your_color_style">Select your color style:</string>
+    <string name="select_your_font_style">Select your font style</string>
+    <string name="roboto_style">Roboto Style</string>
+    <string name="felipa_style">Felipa Style</string>
 </resources>

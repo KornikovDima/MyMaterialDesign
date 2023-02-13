@@ -1,21 +1,44 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.MyMaterialDesign" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="colorPrimaryDark">#AFB42B</item>
-        <item name="colorPrimary">#CDDC39</item>
-        <item name="colorOnPrimaryContainer">#F0F4C3</item>
-        <item name="colorAccent">#9E9E9E</item>
-        <item name="android:textColorPrimary">#212121</item>
-        <item name="android:textColorSecondary">#757575</item>
-        <item name="rippleColor">#CDDC39</item>
-        <item name="chipStyle">@style/MyChipStyle</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/light_gray</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="textColorConnected">@color/green</item>
+        <item name="textColorDisConnected">@color/light_gray</item>
+    </style>
+
+    <style name="LimeTheme" parent="Base.Theme.MyMaterialDesign">
+        <item name="colorPrimary">@color/lime</item>
+        <item name="colorPrimaryVariant">@color/lime_dark</item>
+        <item name="colorSecondary">@color/lime</item>
+    </style>
+
+    <style name="OrangeTheme" parent="Base.Theme.MyMaterialDesign">
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryVariant">@color/orange_dark</item>
+        <item name="colorSecondary">@color/orange</item>
     </style>
 
     <style name="MyChipStyle" parent="Widget.Material3.Chip.Suggestion">
         <item name="rippleColor">#CDDC39</item>
     </style>
 
-    <style name="Theme.MyMaterialDesign" parent="Base.Theme.MyMaterialDesign" />
+    <style name="RobotoFont" parent="Theme.AppCompat">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="FelipaFont">
+        <item name="android:fontFamily">@font/felipa</item>
+    </style>
+
 </resources>
+
