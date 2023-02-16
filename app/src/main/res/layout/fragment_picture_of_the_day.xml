@@ -46,6 +46,7 @@
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipBefore"
                     style="@style/MyChipStyle"
+                    android:outlineSpotShadowColor="?colorPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/day_before_yesterday" />
@@ -95,15 +96,5 @@
     <include
         android:id="@+id/bsl"
         layout="@layout/bottom_sheet_layout" />
-
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:backgroundTint="?attr/colorSecondary"
-        app:hideOnScroll="true"
-        app:layout_scrollFlags="scroll|enterAlways"
-        app:navigationIcon="@drawable/ic_hamburger_menu_bottom_bar" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

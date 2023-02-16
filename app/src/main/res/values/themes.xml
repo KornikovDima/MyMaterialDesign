@@ -30,6 +30,7 @@
 
     <style name="MyChipStyle" parent="Widget.Material3.Chip.Suggestion">
         <item name="rippleColor">#CDDC39</item>
+        <item name="backgroundColor">@color/green</item>
     </style>
 
     <style name="RobotoFont" parent="Theme.AppCompat">
@@ -40,5 +41,8 @@
         <item name="android:fontFamily">@font/felipa</item>
     </style>
 
-</resources>
+    <style name="MyBottomNav" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="colorSurface">?attr/colorPrimary</item>
+    </style>
 
+</resources>

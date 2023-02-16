@@ -5,19 +5,14 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.annotation.RequiresApi
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import coil.load
-import com.example.mymaterialdesign.MainActivity
 import com.example.mymaterialdesign.R
 import com.example.mymaterialdesign.databinding.FragmentPictureOfTheDayBinding
 import com.example.mymaterialdesign.viewmodel.AppState
 import com.example.mymaterialdesign.viewmodel.PictureOfTheDayViewModel
-import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.snackbar.Snackbar
 import java.time.LocalDate
 
@@ -44,6 +39,22 @@ class PictureOfTheDayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        loadData()
+
+        searchWiki()
+    }
+
+    private fun searchWiki() {
+        binding.textInputLayout.setEndIconOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW).apply {
+                data =
+                    Uri.parse("https://en.wikipedia.org/wiki/${binding.inputSearch.text.toString()}")
+            })
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun loadData() {
         viewModel.getLiveData().observe(viewLifecycleOwner) { appState ->
             renderData(appState)
         }
@@ -64,29 +75,6 @@ class PictureOfTheDayFragment : Fragment() {
         }
 
         binding.chipToday.setOnClickListener { viewModel.sendRequest(LocalDate.now().toString()) }
-
-        binding.textInputLayout.setEndIconOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data =
-                    Uri.parse("https://en.wikipedia.org/wiki/${binding.inputSearch.text.toString()}")
-            })
-        }
-        setBottomAppBar(view)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_bottom_bar, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.app_bar_fav -> Toast.makeText(context, "Заглушка", Toast.LENGTH_SHORT).show()
-            R.id.app_bar_settings -> activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, SettingFragment())
-                ?.addToBackStack(null)
-                ?.commit()
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     private fun renderData(appState: AppState?) {
@@ -117,14 +105,6 @@ class PictureOfTheDayFragment : Fragment() {
             else -> {}
         }
     }
-
-    private fun setBottomAppBar(view: View) {
-        val context = activity as MainActivity
-        context.setSupportActionBar(view.findViewById(R.id.bottomAppBar))
-        setHasOptionsMenu(true)
-        binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar)
-    }
-
 
     companion object {
         fun newInstance() = PictureOfTheDayFragment()

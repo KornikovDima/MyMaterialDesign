@@ -21,4 +21,14 @@
     <string name="select_your_font_style">Select your font style</string>
     <string name="roboto_style">Roboto Style</string>
     <string name="felipa_style">Felipa Style</string>
+    <string name="earth_tab_text">Earth</string>
+    <string name="mars_tab_text">Mars</string>
+    <string name="system_tab_text">System</string>
+    <string name="earth">Earth</string>
+    <string name="mars">Mars</string>
+    <string name="weather">Weather</string>
+    <string name="pictures_of_the_day">Pictures of the day</string>
+    <string name="viewpager">VieWPager</string>
+    <string name="settingg">Setting</string>
+
 </resources>

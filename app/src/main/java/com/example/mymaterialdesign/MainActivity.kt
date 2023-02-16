@@ -1,11 +1,14 @@
 package com.example.mymaterialdesign
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mymaterialdesign.R
 import com.example.mymaterialdesign.databinding.ActivityMainBinding
+import com.example.mymaterialdesign.navigation.ViewPagerAdapter
 import com.example.mymaterialdesign.view.PictureOfTheDayFragment
 import com.example.mymaterialdesign.view.SettingFragment
+import com.example.mymaterialdesign.view.VievPagerFragment
 
 const val ThemeLime = 1
 const val ThemeOrange = 2
@@ -27,6 +30,30 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, PictureOfTheDayFragment.newInstance())
                 .commit()
+        }
+
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.menuPicturesOfTheDay -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.container, PictureOfTheDayFragment.newInstance())
+                        .commit()
+                    true
+                }
+                R.id.menuViewPager -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.container, VievPagerFragment())
+                        .commit()
+                    true
+                }
+                R.id.menuSetting -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.container, SettingFragment())
+                        .commit()
+                    true
+                }
+                else -> false
+            }
         }
     }
 

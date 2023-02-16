@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuPicturesOfTheDay"
+        android:enabled="true"
+        android:icon="@drawable/ic_earth"
+        android:title="@string/pictures_of_the_day"/>
+    <item
+        android:id="@+id/menuViewPager"
+        android:enabled="true"
+        android:icon="@drawable/ic_earth"
+        android:title="@string/viewpager"/>
+    <item
+        android:id="@+id/menuSetting"
+        android:enabled="true"
+        android:icon="@drawable/ic_settings_menu"
+        android:title="@string/settingg"/>
+
+</menu>
