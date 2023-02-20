@@ -54,6 +54,9 @@ class VievPagerFragment : Fragment() {
                         2 -> {
                             "Systtem"
                         }
+                        3 -> {
+                            "Lesson 4"
+                        }
                         else -> "None"
                     }
                 }

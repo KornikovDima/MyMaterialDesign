@@ -30,5 +30,9 @@
     <string name="pictures_of_the_day">Pictures of the day</string>
     <string name="viewpager">VieWPager</string>
     <string name="settingg">Setting</string>
+    <string name="descriptionLessonFour">По переключению свича реализована изменение параметра видимости группы элементов (применены навыки работы с группаи). По нажатию на кнопку Motion, будут продемонстрированы возможности Motion Layout. В данном фрагменте так же использованы возможности ConstrainLayout такие как: барьер, вес элемента выроженный через % и прочие</string>
+    <string name="visiblyGruop">Видимость группы элементов</string>
+    <string name="motions">Motions</string>
+    <string name="motion2">Motion2</string>
 
 </resources>

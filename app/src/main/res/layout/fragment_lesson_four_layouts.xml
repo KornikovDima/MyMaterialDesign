@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/fragment_lesson_four_layouts_scene">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelain1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelain2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelain3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelain4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85"/>
+
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupVisibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="motionButtonOne, descriptionLessonFour" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/motionButtonOne"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/motions"
+        app:layout_constraintBottom_toTopOf="@+id/guidelain2"
+        app:layout_constraintEnd_toStartOf="@+id/guidelain1"
+        app:layout_constraintStart_toStartOf="@+id/guidelain1"
+        app:layout_constraintTop_toTopOf="@+id/guidelain2"
+        app:layout_constraintWidth_percent="0.2" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/motionButtonTwo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/motion2"
+        app:layout_constraintBottom_toTopOf="@+id/guidelain3"
+        app:layout_constraintEnd_toStartOf="@+id/guidelain1"
+        app:layout_constraintStart_toStartOf="@+id/guidelain1"
+        app:layout_constraintTop_toTopOf="@+id/guidelain3"
+        app:layout_constraintWidth_percent="0.3" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/motionButtonThree"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Motion3"
+        app:layout_constraintBottom_toTopOf="@+id/guidelain3"
+        app:layout_constraintEnd_toStartOf="@+id/guidelain4"
+        app:layout_constraintStart_toStartOf="@+id/guidelain4"
+        app:layout_constraintTop_toTopOf="@+id/guidelain3"
+        app:layout_constraintWidth_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="motionButtonOne"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupVisibl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="motionButtonOne, descriptionLessonFour"/>
+
+
+    <TextView
+        android:id="@+id/descriptionLessonFour"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:text="@string/descriptionLessonFour"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/barrier"
+        app:layout_constraintTop_toTopOf="@+id/guidelain2" />
+
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/swichVisibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

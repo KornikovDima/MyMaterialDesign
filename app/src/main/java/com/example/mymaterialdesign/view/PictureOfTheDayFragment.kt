@@ -42,6 +42,7 @@ class PictureOfTheDayFragment : Fragment() {
         loadData()
 
         searchWiki()
+
     }
 
     private fun searchWiki() {

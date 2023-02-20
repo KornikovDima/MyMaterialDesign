@@ -28,6 +28,24 @@
         <item name="colorSecondary">@color/orange</item>
     </style>
 
+    <style name="GreenTheme" parent="Base.Theme.MyMaterialDesign">
+        <item name="colorPrimary">#388e3c</item>
+        <item name="colorPrimaryVariant">#6abf69</item>
+        <item name="colorSecondary">#00600f</item>
+    </style>
+
+    <style name="BlueLightTheme" parent="Base.Theme.MyMaterialDesign">
+        <item name="colorPrimary">#29b6f6</item>
+        <item name="colorPrimaryVariant">#73e8ff</item>
+        <item name="colorSecondary">#0086c3</item>
+    </style>
+
+    <style name="RedTheme" parent="Base.Theme.MyMaterialDesign">
+        <item name="colorPrimary">#e53935</item>
+        <item name="colorPrimaryVariant">#ff6f60</item>
+        <item name="colorSecondary">#ab000d</item>
+    </style>
+
     <style name="MyChipStyle" parent="Widget.Material3.Chip.Suggestion">
         <item name="rippleColor">#CDDC39</item>
         <item name="backgroundColor">@color/green</item>

@@ -8,12 +8,13 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class ViewPagerAdapter(fr: Fragment) : FragmentStateAdapter(fr) {
     private val fragments = arrayOf(EarthFragment(), MarsFragment(),
-        SystemFragment())
+        SystemFragment(), LessonFourFragment())
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> fragments[EARTH_FRAGMENT]
             1 -> fragments[MARS_FRAGMENT]
             2 -> fragments[SYSTEM_FRAGMENT]
+            3 -> fragments[LESSON_FOUR_FRAGMENT]
             else -> fragments[EARTH_FRAGMENT]
         }
     }
@@ -24,5 +25,6 @@ class ViewPagerAdapter(fr: Fragment) : FragmentStateAdapter(fr) {
         private const val EARTH_FRAGMENT = 0
         private const val MARS_FRAGMENT = 1
         private const val SYSTEM_FRAGMENT = 2
+        private const val LESSON_FOUR_FRAGMENT = 3
     }
 }
