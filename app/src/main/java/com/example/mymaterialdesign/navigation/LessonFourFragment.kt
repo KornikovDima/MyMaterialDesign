@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mymaterialdesign.databinding.FragmentLessonFourLayoutsBinding
 
+
 class LessonFourFragment: Fragment() {
 
 

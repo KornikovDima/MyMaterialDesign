@@ -1,12 +1,24 @@
 package com.example.mymaterialdesign.view
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.transition.ChangeBounds
+import android.transition.ChangeImageTransform
+import android.transition.TransitionManager
+import android.transition.TransitionSet
 import android.view.*
+import android.view.animation.AnticipateOvershootInterpolator
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.annotation.RequiresApi
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.example.mymaterialdesign.R
@@ -21,6 +33,10 @@ class PictureOfTheDayFragment : Fragment() {
 
     private var _binding: FragmentPictureOfTheDayBinding? = null
     private val binding get() = _binding!!
+
+    var isFlag = false
+    var isFlagDate = false
+    var duration = 1000L
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,9 +56,72 @@ class PictureOfTheDayFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         loadData()
-
         searchWiki()
+        increaseImage()
+        viewAnimation()
 
+    }
+
+    private fun viewAnimation() {
+        binding.fab.setOnClickListener {
+            isFlagDate = !isFlagDate
+            if (isFlagDate) {
+                ObjectAnimator.ofFloat(binding.plusImageview, View.ROTATION, 0f, 675f)
+                    .setDuration(duration).start()
+                ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, -700f)
+                    .setDuration(duration).start()
+                ObjectAnimator.ofFloat(binding.transparentBackground, View.ALPHA, 0.9f)
+                    .setDuration(duration).start()
+
+                binding.optionOneContainer.animate().alpha(1f).setDuration(duration).setListener(
+                    object : AnimatorListenerAdapter() {
+                        override fun onAnimationEnd(animation: Animator) {
+                            binding.optionOneContainer.isClickable = true
+                        }
+                    }
+                )
+            } else {
+                ObjectAnimator.ofFloat(binding.plusImageview, View.ROTATION, 675f, 0f)
+                    .setDuration(duration).start()
+                ObjectAnimator.ofFloat(binding.optionOneContainer, View.TRANSLATION_Y, 0f)
+                    .setDuration(duration).start()
+                ObjectAnimator.ofFloat(binding.transparentBackground, View.ALPHA, 0f)
+                    .setDuration(duration).start()
+
+                binding.optionOneContainer.animate().alpha(0f).setDuration(duration).setListener(
+                    object : AnimatorListenerAdapter() {
+                        override fun onAnimationEnd(animation: Animator) {
+                            binding.optionOneContainer.isClickable = false
+                        }
+                    }
+                )
+            }
+        }
+    }
+
+    private fun increaseImage() {
+        binding.imageView.setOnClickListener {
+            isFlag = !isFlag
+
+            val params = it.layoutParams as ConstraintLayout.LayoutParams
+
+            val transitionSet = TransitionSet()
+            val changeBounds = ChangeBounds()
+            val changeImageTransform = ChangeImageTransform()
+
+            transitionSet.addTransition(changeBounds)
+            transitionSet.addTransition(changeImageTransform)
+
+            TransitionManager.beginDelayedTransition(binding.root, transitionSet)
+            if (isFlag) {
+                params.height = ConstraintLayout.LayoutParams.MATCH_PARENT
+                binding.imageView.scaleType = ImageView.ScaleType.CENTER_CROP
+            } else {
+                params.height = ConstraintLayout.LayoutParams.WRAP_CONTENT
+                binding.imageView.scaleType = ImageView.ScaleType.CENTER_INSIDE
+            }
+            it.layoutParams = params
+        }
     }
 
     private fun searchWiki() {
