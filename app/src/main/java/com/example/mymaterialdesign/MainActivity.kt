@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.mymaterialdesign.R
 import com.example.mymaterialdesign.databinding.ActivityMainBinding
 import com.example.mymaterialdesign.navigation.ViewPagerAdapter
+import com.example.mymaterialdesign.recycler.RecyclerFragment
 import com.example.mymaterialdesign.view.PictureOfTheDayFragment
 import com.example.mymaterialdesign.view.SettingFragment
 import com.example.mymaterialdesign.view.VievPagerFragment
@@ -49,6 +50,12 @@ class MainActivity : AppCompatActivity() {
                 R.id.menuSetting -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.container, SettingFragment())
+                        .commit()
+                    true
+                }
+                R.id.menuRecycler -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.container, RecyclerFragment())
                         .commit()
                     true
                 }

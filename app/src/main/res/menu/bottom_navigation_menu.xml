@@ -11,6 +11,11 @@
         android:icon="@drawable/ic_earth"
         android:title="@string/viewpager"/>
     <item
+        android:id="@+id/menuRecycler"
+        android:enabled="true"
+        android:icon="@drawable/ic_hamburger_menu_bottom_bar"
+        android:title="@string/recycler"/>
+    <item
         android:id="@+id/menuSetting"
         android:enabled="true"
         android:icon="@drawable/ic_settings_menu"
