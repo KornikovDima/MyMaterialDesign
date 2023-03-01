@@ -4,9 +4,16 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.style.BulletSpan
+import android.text.style.ForegroundColorSpan
 import android.transition.ChangeBounds
 import android.transition.ChangeImageTransform
 import android.transition.TransitionManager
@@ -19,6 +26,7 @@ import androidx.fragment.app.Fragment
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.example.mymaterialdesign.R
@@ -59,6 +67,7 @@ class PictureOfTheDayFragment : Fragment() {
         searchWiki()
         increaseImage()
         viewAnimation()
+
 
     }
 
@@ -178,8 +187,30 @@ class PictureOfTheDayFragment : Fragment() {
 
                 binding.bsl.bottomSheetDescriptionHeader.text =
                     appState.pictureOfTheDayResponseData.title
-                binding.bsl.bottomSheetDescription.text =
-                    appState.pictureOfTheDayResponseData.explanation
+//                binding.bsl.bottomSheetDescription.text =
+//                    appState.pictureOfTheDayResponseData.explanation
+
+                binding.bsl.bottomSheetDescriptionHeader.typeface =
+                    Typeface.createFromAsset(requireActivity().assets, "font/TheBomb-7B9gw.ttf")
+
+                val text = appState.pictureOfTheDayResponseData.explanation
+
+                val spannableString: SpannableString = SpannableString(text)
+
+                for (i in appState.pictureOfTheDayResponseData.explanation.indices) {
+                    if (text[i] == 'o') {
+                        spannableString.setSpan(
+                            ForegroundColorSpan(
+                                ContextCompat.getColor(
+                                    requireContext(),
+                                    R.color.lime_dark
+                                )
+                            ),
+                            i, i + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                        )
+                    }
+                }
+                binding.bsl.bottomSheetDescription.text = spannableString
 
             }
             else -> {}

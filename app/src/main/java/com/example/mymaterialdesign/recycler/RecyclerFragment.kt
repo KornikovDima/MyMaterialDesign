@@ -13,7 +13,7 @@ class RecyclerFragment : Fragment() {
     private var _binding: FragmentRecyclerBinding? = null
     private val binding get() = _binding!!
 
-    val data = arrayListOf(
+    private val data = arrayListOf(
 
         Pair(Data(id = 0, "Mars", type = TYPE_MARS), false),
         Pair(Data(id = 1, "Mars", type = TYPE_MARS), false),
@@ -29,7 +29,7 @@ class RecyclerFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentRecyclerBinding.inflate(inflater, container, false)
         return binding.root
     }
