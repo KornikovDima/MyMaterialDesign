@@ -46,6 +46,10 @@
         <item name="colorSecondary">#ab000d</item>
     </style>
 
+    <style name="SplashTheme" parent="LimeTheme">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+
     <style name="MyChipStyle" parent="Widget.Material3.Chip.Suggestion">
         <item name="rippleColor">#CDDC39</item>
         <item name="backgroundColor">@color/green</item>
